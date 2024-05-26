@@ -3,9 +3,11 @@
 source ./common.sh
 
 check_root
+#when you're calling function it shouldnt have () brackets
 
 echo "Please enter DB password:"
 read -s mysql_root_password
+
 dnf install mysql-server -y &>>$LOGFILE
 VALIDATE $? "Installing MySQL Server"
 
