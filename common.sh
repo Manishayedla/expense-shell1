@@ -1,4 +1,14 @@
 #!/bin/bash
+set -e
+
+find_error() {
+
+echo "Error found at line number: $1, error command at: $2"
+
+}
+
+trap 'failure ${LINENO} "$BASH_COMMAND"' ERR
+
 
 USERID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
